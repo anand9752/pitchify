@@ -1,19 +1,24 @@
 
-import { client } from "@/sanity/lib/client";
 import SearchForm from "../../components/SearchForm";
-import StartupCard from "@/components/StartupCard";
-import { STARTUP_QUERY } from "@/lib/queries";
+import StartupCard, { StartupCardType} from "@/components/StartupCard";
+import { STARTUPS_QUERY } from "@/sanity/lib/quries";
+import { sanityFetch,SanityLive } from "@/sanity/lib/live";
+
+
 
 export default async function Home(
   {searchParams}:{searchParams :Promise<{query?:string}>}
 ) {
-  const query =   (await searchParams).query || ""; // Safely access `query` with a fallback
+  const query =   (await searchParams).query || "";// Safely access `query` with a fallback
+  const params =  {search:query ||null};
+const {data:posts}=  await sanityFetch({
+  query: STARTUPS_QUERY, // Fix: Pass STARTUPS_QUERY as `query`
+  params // Add params if needed, otherwise keep it empty
+});
+  // const posts =  await client.fetch(STARTUPS_QUERY);
 
-  const posts = await client.fetch(STARTUP_QUERY)
 
-  // console.log(JSON.stringify(posts , null , 2));
-  
-
+  console.log(JSON.stringify(posts , null , 2));
 
 
   return (
@@ -25,7 +30,7 @@ export default async function Home(
           Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions
         </p>
 
-        <SearchForm query={query} />
+        <SearchForm query={query} /> 
       </section>
 
 
@@ -37,7 +42,7 @@ export default async function Home(
         </p>
 
         <ul className=" mt-7 card_grid">
-            { posts.length > 0 ? (
+            { posts?.length > 0 ? (
               posts.map( (post:StartupCardType) =>(
                 <StartupCard key={post?._id} post={post}/>
               ))
@@ -46,6 +51,7 @@ export default async function Home(
             )}
            </ul>
       </section>
+      <SanityLive/>
     </>
   );
 }
