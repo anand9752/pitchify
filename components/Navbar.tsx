@@ -32,7 +32,7 @@ const Navbar = async () => {
                                  </button>
                              </form>
 
-                            <Link href={`/user/${session?.id}`}>
+                            <Link href={`/`}>
                                 <span>{session?.user?.name}</span>
                             </Link>
                         </>
