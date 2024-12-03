@@ -19,6 +19,12 @@ const StartupForm = () => {
   const [pitch, setPitch] = useState("");
   const { toast } = useToast();
   const router = useRouter();
+  interface FormSubmitState {
+  error?: string;
+  status: string;
+}
+
+
 
   // Define the form submit function
   const handleFormSubmit = async (prevState: any, formData: FormData) => {
@@ -78,7 +84,7 @@ const StartupForm = () => {
     }
   };
 
-  const [state, formAction, isPending] = useActionState(handleFormSubmit, {
+  const [formState, formAction, isPending] = useActionState<FormSubmitState>(handleFormSubmit, {
     error: "",
     status: "INITIAL",
   });
