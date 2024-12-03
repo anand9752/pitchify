@@ -1,26 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  
-  images:{
-    dangerouslyAllowSVG:true,
-     remotePatterns:[
+  images: {
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
       {
-        protocol:"https",
-        hostname:"*"
-      }
-     ]
+        protocol: "https",
+        hostname: "*",
+      },
+    ],
   },
 
   experimental: {
-   after:true
+    after: true,
   },
-  devIndicators:{
 
-    appIsrStatus:true,
+  devIndicators: {
+    appIsrStatus: true,
     buildActivity: true,
-    buildActivityPosition:"bottom-right"
-  }
+    buildActivityPosition: "bottom-right",
+  },
+
+  // Enable source maps for production builds
+  productionBrowserSourceMaps: true,
 };
 
 export default nextConfig;
