@@ -20,7 +20,7 @@ const page = async ({params } :{params :Promise<{id :string}>}) => {
     const post = await client.fetch(STARTUP_BY_ID_QUERY , {id});
 
     if(!post){
-        console.log()
+       
         return notFound();
     }
 

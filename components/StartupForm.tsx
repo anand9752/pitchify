@@ -37,19 +37,19 @@ const StartupForm = () => {
         link: formData.get("link") as string,
         pitch,
       };
-      // console.log(formValues);
+      
       alert("hello")             
       // Validation
       await formSchema.parseAsync(formValues);
-      console.log(formValues);
-      console.log("pitch", pitch);
+      
+      
       
       
 
       // Call your backend action
       const result = await createPitch(prevState, formData, pitch);
 
-      console.log(result);
+     
       if (result.status === "SUCCESS") {
         toast({
           title: "Success",
@@ -62,7 +62,7 @@ const StartupForm = () => {
       // Handle other response statuses
       return { ...prevState, status: "ERROR" };
     } catch (error) {
-      console.error("Form submission error:", error);
+     
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
         setErrors(fieldErrors as unknown as Record<string, string>);

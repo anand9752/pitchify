@@ -6,7 +6,7 @@ import React from "react";
 
 
 const View = async ({ id }: { id: string }) => {
-  console.log(id);
+ 
 
   try {
 
@@ -15,7 +15,7 @@ const View = async ({ id }: { id: string }) => {
      
       
 
-      // console.log(data)
+     
 
     if (!data) {
       return <p>Error: No data found.</p>; // Display an error message if no data is found
@@ -28,8 +28,7 @@ const View = async ({ id }: { id: string }) => {
     await writeClient.patch(id).set({views: totalViews + 1}).commit()
    });
 
-    // console.log(totalViews);
-
+ 
     return (
       <div className="view-container">
         <div className="absolute -top-2 -right-2">
@@ -48,7 +47,7 @@ const View = async ({ id }: { id: string }) => {
       </div>
     );
   } catch (error) {
-    console.error("Error fetching data:", error);
+    
     return <p>Error: Unable to fetch data.</p>; // Display a general error message
   }
 };

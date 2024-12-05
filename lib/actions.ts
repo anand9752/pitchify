@@ -55,7 +55,7 @@ export const createPitch = async (
       status: "SUCCESS",
     });
   } catch (error) {
-    console.error("Error creating pitch:", error);
+  
 
     return parseServerActionResponse({
       error: JSON.stringify(error),

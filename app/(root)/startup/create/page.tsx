@@ -8,7 +8,7 @@ import React from 'react'
 const page = async () => {
 
     const session = await auth();
-    console.log(session);  // Log the session to see if it's what you expect
+      // Log the session to see if it's what you expect
     if (!session) return redirect('/');
     
 
