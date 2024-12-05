@@ -69,10 +69,11 @@ const StartupForm = () => {
     }
   };
 
-  const [formState, formAction, isPending] = useActionState<FormSubmitState>(handleFormSubmit, {
+  const [, formAction, isPending] = useActionState<FormSubmitState>(handleFormSubmit, {
     error: "",
     status: "INITIAL",
   });
+  
 
   return (
     <form action={formAction} className="startup-form">

@@ -8,7 +8,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   const query = (await searchParams).query || ""; // Safely access `query` with a fallback
   const params = { search: query || null };
 
-  const session = await auth();
+  
 
   const { data: posts } = await sanityFetch({
     query: STARTUPS_QUERY,
