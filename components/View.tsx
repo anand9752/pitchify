@@ -25,6 +25,7 @@ const View = async ({ id }: { id: string }) => {
       </div>
     );
   } catch (error) {
+    console.error("Error fetching views:", error); // Log the error
     return <p>Error: Unable to fetch views.</p>;
   }
 };
