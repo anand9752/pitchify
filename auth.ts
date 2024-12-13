@@ -4,7 +4,7 @@ import { AUTHOR_BY_GITHUB_ID_QUERY } from "@/sanity/lib/quries";
 import { client } from "@/sanity/lib/client";
 import { writeClient } from "@/sanity/lib/write-client";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export default NextAuth({
   providers: [GitHub],
   callbacks: {
     async signIn({

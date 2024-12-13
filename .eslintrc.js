@@ -1,0 +1,17 @@
+
+module.exports = {
+  extends: ["next", "next/core-web-vitals", "next/typescript"],
+  eslint: {
+    ignoreDuringBuilds: true, // Disable ESLint checks during builds
+  },
+  rules: {
+    "@next/next/no-img-element": "off", // Disables warnings for <img> instead of <Image>
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^ignored" }
+    ],
+    "@typescript-eslint/no-explicit-any": "warn", // Allows 'any' but shows a warning to encourage better typing
+    "no-console": ["warn", { allow: ["warn", "error"] }], // Encourages limiting console statements
+    "react/react-in-jsx-scope": "off" // Not needed for Next.js as React is automatically in scope
+  }
+};
