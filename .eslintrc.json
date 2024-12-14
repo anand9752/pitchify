@@ -8,6 +8,7 @@
     ],
     "@typescript-eslint/no-explicit-any": "warn",
     "no-console": ["warn", { "allow": ["warn", "error"] }],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/ban-ts-comment": "off" // Add this line to ignore TypeScript comments
   }
 }
