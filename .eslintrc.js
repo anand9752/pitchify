@@ -1,9 +1,5 @@
-
 module.exports = {
   extends: ["next", "next/core-web-vitals", "next/typescript"],
-  eslint: {
-    ignoreDuringBuilds: true, // Disable ESLint checks during builds
-  },
   rules: {
     "@next/next/no-img-element": "off", // Disables warnings for <img> instead of <Image>
     "@typescript-eslint/no-unused-vars": [
